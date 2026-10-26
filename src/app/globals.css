@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #050505;
+    --bg-secondary: #0c0807;
+    --accent-orange: #FF4A0A;
+    --accent-amber: #FF8A24;
+    --accent-glow: #FFA439;
+    --text-primary: #FFFFFF;
+    --text-secondary: #9CA3AF;
+  }
+
+  html.light {
+    --bg-primary: #F8F7F4;
+    --bg-secondary: #EFECE6;
+    --text-primary: #0A0A0A;
+    --text-secondary: #52525B;
+  }
+
+  html.light body {
+    background-color: #F8F7F4;
+    color: #18181B;
+  }
+
+  html.light .bg-\[\#050505\] {
+    background-color: #F8F7F4 !important;
+  }
+
+  html.light .bg-\[\#0a0a0a\] {
+    background-color: #FFFFFF !important;
+  }
+
+  html.light .bg-black\/60,
+  html.light .bg-black\/70,
+  html.light .bg-black\/80,
+  html.light .bg-black\/90,
+  html.light .bg-\[\#050505\]\/75,
+  html.light .bg-\[\#050505\]\/90,
+  html.light .bg-\[\#050505\]\/98 {
+    background-color: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  html.light .border-white\/10,
+  html.light .border-white\/5,
+  html.light .border-white\/20,
+  html.light .border-white\/\[0\.08\] {
+    border-color: rgba(0, 0, 0, 0.12) !important;
+  }
+
+  html.light .text-white {
+    color: #0A0A0A !important;
+  }
+
+  html.light .text-zinc-200,
+  html.light .text-zinc-300 {
+    color: #3F3F46 !important;
+  }
+
+  html.light .text-zinc-400 {
+    color: #71717A !important;
+  }
+
+  html.light .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+  }
+
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-margin-top: 100px;
+  }
+
+  body {
+    background-color: #050505;
+    color: #F3F4F6;
+    font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+    overflow-x: hidden;
+    selection-background-color: #FF4A0A;
+    selection-color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: #FF4A0A;
+    color: #ffffff;
+  }
+
+  /* Custom luxury dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
+  html.light ::-webkit-scrollbar-track {
+    background: #F8F7F4;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #251209;
+    border-radius: 9999px;
+  }
+
+  html.light ::-webkit-scrollbar-thumb {
+    background: #D4D4D8;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF4A0A;
+  }
+}
+
+/* Luxury Glow utilities */
+.glow-orange {
+  text-shadow: 0 0 20px rgba(255, 74, 10, 0.6), 0 0 45px rgba(255, 138, 36, 0.4);
+}
+
+.box-glow-orange {
+  box-shadow: 0 0 30px rgba(255, 74, 10, 0.35), 0 0 60px rgba(255, 138, 36, 0.15);
+}
+
+.box-glow-orange-intense {
+  box-shadow: 0 0 40px rgba(255, 74, 10, 0.6), 0 0 90px rgba(255, 138, 36, 0.35), inset 0 0 20px rgba(255, 74, 10, 0.4);
+}
+
+.border-glow {
+  border-color: rgba(255, 74, 10, 0.4);
+  box-shadow: 0 0 15px rgba(255, 74, 10, 0.2);
+}
+
+/* Subtle Film Grain Overlay */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Keyframe Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 25px rgba(255, 74, 10, 0.8));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 45px rgba(255, 138, 36, 1));
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes laserScan {
+  0% {
+    top: 4%;
+    opacity: 0.7;
+  }
+  50% {
+    top: 94%;
+    opacity: 1;
+  }
+  100% {
+    top: 4%;
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
